@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;height:100vh;display:flex;justify-content:center;align-items:center;font-family:sans-serif;flex-direction:column;gap:20px">
+  <h1>Welcome / Bienvenido</h1>
+  <select id="lang" style="padding:15px;font-size:18px">
+    <option value="es">Español</option>
+    <option value="en">English</option>
+  </select>
+  <button id="go" style="padding:15px 30px;font-size:18px;cursor:pointer">Continuar / Continue</button>
+  <script>
+    document.getElementById('go').onclick = () => {
+      localStorage.setItem('fc_lang', document.getElementById('lang').value);
+      chrome.storage.local.set({fc_lang: document.getElementById('lang').value}, ()=> window.close());
+    }
+  </script>
+</body>
+</html>
